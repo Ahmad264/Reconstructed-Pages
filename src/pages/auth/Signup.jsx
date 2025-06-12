@@ -27,7 +27,7 @@ export default function Signup() {
               value={formData.username}
               onChange={(e) => setFormData({...formData, username: e.target.value})}/>
           </div>
-          {/* for email and password */}
+          
           <button
             type="submit"
             className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-lg transition-colors">
