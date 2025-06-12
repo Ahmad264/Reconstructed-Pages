@@ -23,10 +23,9 @@ const badges = [
 export default function Dashboard() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#181f2a] to-[#232946] text-white px-2 md:px-8 py-6">
-      {/* Header/Navbar */}
-      <Header />
 
-      {/* Status badges */}
+      <Header />
+      
       <div className="flex justify-center gap-6 mb-8 mt-6">
         {badges.map((badge, idx) => (
           <div
@@ -38,10 +37,8 @@ export default function Dashboard() {
           </div>
         ))}
       </div>
-
-      {/* Main cards grid */}
+      
       <div className="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-6xl mx-auto mb-8">
-        {/* Profile Card */}
         <div className="bg-[#232d3b] rounded-2xl p-8 flex flex-col items-center shadow-lg">
           <div className="w-20 h-20 bg-blue-500 rounded-full flex items-center justify-center text-3xl font-bold mb-4">
             JD
@@ -55,7 +52,6 @@ export default function Dashboard() {
           </div>
         </div>
 
-        {/* Exercise Progress */}
         <div className="bg-[#232d3b] rounded-2xl p-8 shadow-lg flex flex-col justify-between">
           <div className="flex items-center justify-between mb-2">
             <span className="font-semibold">Exercise Progress</span>
@@ -68,7 +64,6 @@ export default function Dashboard() {
           </div>
         </div>
 
-        {/* Continue Learning */}
         <div className="bg-[#232d3b] rounded-2xl p-8 shadow-lg flex flex-col justify-between">
           <div className="flex items-center justify-between mb-2">
             <span className="font-semibold">Continue Learning</span>
@@ -80,7 +75,6 @@ export default function Dashboard() {
           </button>
         </div>
 
-        {/* Learning Goals */}
         <div className="bg-[#232d3b] rounded-2xl p-8 shadow-lg flex flex-col justify-between">
           <div className="flex items-center justify-between mb-2">
             <span className="font-semibold">Learning Goals</span>
@@ -93,21 +87,19 @@ export default function Dashboard() {
         </div>
       </div>
 
-      {/* Highlight cards row */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto mb-8">
-        {/* Day Streak */}
         <div className="bg-[#22243a] rounded-2xl p-8 flex flex-col items-center shadow-lg">
           <FaFire className="text-5xl text-orange-400 mb-2" />
           <div className="text-3xl font-bold text-orange-300 mb-1">0</div>
           <div className="text-gray-300 text-sm tracking-wide">DAY STREAK</div>
         </div>
-        {/* Learning This Week */}
+
         <div className="bg-[#22243a] rounded-2xl p-8 flex flex-col items-center shadow-lg">
           <FaHourglassHalf className="text-5xl text-blue-300 mb-2" />
           <div className="text-3xl font-bold text-blue-300 mb-1">0m</div>
           <div className="text-gray-300 text-sm tracking-wide">LEARNING THIS WEEK</div>
         </div>
-        {/* Certificates Earned */}
+
         <div className="bg-[#22243a] rounded-2xl p-8 flex flex-col items-center shadow-lg">
           <FaGraduationCap className="text-5xl text-purple-400 mb-2" />
           <div className="text-3xl font-bold text-purple-300 mb-1">0</div>
@@ -115,7 +107,6 @@ export default function Dashboard() {
         </div>
       </div>
 
-      {/* Section Title */}
       <div className="max-w-6xl mx-auto">
         <h2 className="flex items-center text-2xl font-bold mb-4">
           <span className="bg-blue-700/80 text-white rounded-lg p-2 mr-3">
