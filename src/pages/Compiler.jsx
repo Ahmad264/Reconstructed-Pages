@@ -123,7 +123,6 @@ export default function Compiler() {
   // Layout
   return (
     <div className="w-full h-screen flex flex-col bg-gradient-to-br from-[#0e0f1a] to-[#121218]">
-      {/* Header */}
       <div className="h-[50px] flex items-center justify-between px-6 bg-[#1f2235]/90 border-b border-blue-300/10 shadow-lg relative">
         <div className="absolute left-1/2 transform -translate-x-1/2 text-white font-semibold text-base window-title select-none">
           HTML Basics: Creating Your First Webpage
@@ -141,7 +140,6 @@ export default function Compiler() {
           </div>
         </div>
 
-      {/* Main Layout */}
       <div className="flex-1 grid grid-cols-[280px_1fr_400px] h-[calc(100vh-50px)] bg-blue-400/5">
         {/* Sidebar */}
         <aside className="sidebar bg-[#1f2235]/80 border-r border-blue-300/10 flex flex-col">
@@ -169,8 +167,7 @@ export default function Compiler() {
                     onClick={() => {
                       setMainTab("editor");
                       setFileTab(file.key);
-                    }}
-                  >
+                    }}>
                     {file.icon}
                     <span>{file.name}</span>
                   </div>
@@ -209,14 +206,11 @@ export default function Compiler() {
             </div>
           </div>
 
-          {/* Content */}
           <div className="content-area flex-1 relative">
-            {/* Theory */}
             <div className={`content-panel theory-panel absolute inset-0 p-8 overflow-y-auto transition-all duration-300 ${mainTab === "theory" ? "opacity-100 pointer-events-auto translate-y-0" : "opacity-0 pointer-events-none translate-y-8"}`}>
               <div className="theory-content max-w-2xl mx-auto">
                 <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-4">Card Component Exercise</h3>
                 <p className="mb-4 text-blue-100">In this exercise, you'll create a modern card component using HTML for structure and CSS for styling.</p>
-                {/* --- START --- */}
                 <div className="flex items-center mb-2">
                   <span className="inline-block h-6 w-1 bg-sky-400 rounded mr-3"></span>
                   <span className="text-sky-400 font-semibold text-lg">Requirements:</span>
@@ -227,13 +221,10 @@ export default function Compiler() {
                     <li>Style the card with CSS for a modern look</li>
                     <li>Add hover effects for better interactivity</li>
                     </ul>
-                    {/* --- END --- */}
               </div>
           </div>
 
-            {/* Editor Panel */}
             <div className={`content-panel editor-panel absolute inset-0 flex flex-col transition-all duration-300 ${mainTab === "editor" ? "opacity-100 pointer-events-auto translate-y-0" : "opacity-0 pointer-events-none translate-y-8"}`}>
-              {/* Tabs */}
               <div className="file-tabs h-[50px] flex items-center px-4 gap-2 border-b border-blue-300/10 bg-[#1f2235]/90">
                 {files.map((file) => (
                   <button
@@ -274,7 +265,6 @@ export default function Compiler() {
           </div>
         </main>
 
-        {/* Preview */}
         <aside className="preview-panel bg-[#1f2235]/80 border-l border-blue-300/10 flex flex-col">
           <div className="preview-header h-[60px] flex items-center justify-between px-6 border-b border-blue-300/10 bg-[#1f2235]/90">
             <div className="preview-title text-lg font-semibold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
