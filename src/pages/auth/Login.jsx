@@ -6,10 +6,32 @@ export default function Login() {
     email: '',
     password: ''
   });
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
+    setLoading(true);
+    setError('');
+
+    try {
+      //Real API call to backend login endpoint
+      const response = await fetch('https://backend.com/api/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      });
+      const data = await response.json();
+
+      if (response.ok) {
+      } else {
+        setError(data.message || 'Login failed');
+      }
+    } catch (err) {
+      setError('Network error'); //TO handle network error
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -24,7 +46,7 @@ export default function Login() {
               className="w-full px-4 py-3 bg-gray-700 rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-blue-500"
               placeholder="Enter email"
               value={formData.email}
-              onChange={(e) => setFormData({...formData, email: e.target.value})}/>
+              onChange={(e) => setFormData({ ...formData, email: e.target.value })}/>
           </div>
           <div>
             <label className="block text-gray-300 mb-2">Password</label>
@@ -33,15 +55,17 @@ export default function Login() {
               className="w-full px-4 py-3 bg-gray-700 rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-blue-500"
               placeholder="Enter password"
               value={formData.password}
-              onChange={(e) => setFormData({...formData, password: e.target.value})}/>
+              onChange={(e) => setFormData({ ...formData, password: e.target.value })}/>
           </div>
+          {error && <p className="text-red-500">{error}</p>}
           <button
             type="submit"
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-lg transition-colors">
-            Login
+            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-lg transition-colors"
+            disabled={loading}>
+            {loading ? 'Logging in...' : 'Login'}
           </button>
           <p className="text-gray-400 text-center mt-4">
-            Don't have an account? 
+            Don't have an account?
             <Link to="/signup" className="text-blue-500 hover:text-blue-400 ml-2">
               Sign Up
             </Link>
